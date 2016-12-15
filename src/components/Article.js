@@ -5,15 +5,6 @@ export default class Article extends Component {
         isOpen: false
     }
 
-/*
-    constructor() {
-        super()
-        this.state = {
-            isOpen: false
-        }
-    }
-*/
-
     render() {
         const { article } = this.props
         return (
