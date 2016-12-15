@@ -1,13 +1,41 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function Article(props) {
-    const { article } = props
-    return (
-        <div>
-            <h3>{article.title}</h3>
+export default class Article extends Component {
+    state = {
+        isOpen: false
+    }
+
+/*
+    constructor() {
+        super()
+        this.state = {
+            isOpen: false
+        }
+    }
+*/
+
+    render() {
+        const { article } = this.props
+        return (
+            <div>
+                <h3 onClick = {this.toggleOpen}>{article.title}</h3>
+                {this.getBody()}
+            </div>
+        )
+    }
+
+    toggleOpen = () => {
+        this.setState({
+            isOpen: !this.state.isOpen
+        })
+    }
+
+    getBody() {
+        if (!this.state.isOpen) return null
+        return (
             <section>
-                {article.text}
+                {this.props.article.text}
             </section>
-        </div>
-    )
+        )
+    }
 }
