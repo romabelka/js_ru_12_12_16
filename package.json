@@ -1,7 +1,7 @@
 {
   "name": "react_course_23_09_21_30",
   "version": "1.0.0",
-  "description": "",
+  "description": "###HT 1: Добавить список комментов к статье, который будет открываться и закрываться по нажатию на кнопку с соответствующей надписью(тоже меняется)",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot --inline",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/romabelka/js_ru_23_09_21_30"
+    "url": "git+https://github.com/romabelka/js_ru_23_09_21_30.git"
   },
   "author": "",
   "license": "ISC",

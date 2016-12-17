@@ -1,28 +1,32 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
+import CommentList from'./CommentList';
 
 export default class Article extends Component {
     state = {
         isOpen: false
-    }
+    };
 
-/*
-    constructor() {
-        super()
-        this.state = {
-            isOpen: false
-        }
-    }
-*/
+    /*
+     constructor() {
+     super()
+     this.state = {
+     isOpen: false
+     }
+     }
+     */
 
     render() {
-        const { article } = this.props
+        const {article} = this.props;
         return (
             <div>
-                <h3 onClick = {this.toggleOpen}>{article.title}</h3>
+                <h2 onClick={this.toggleOpen}>{article.title}</h2>
                 {this.getBody()}
+                <CommentList comentsId={article.comments}/>
+
             </div>
         )
     }
+
 
     toggleOpen = () => {
         this.setState({
@@ -38,4 +42,5 @@ export default class Article extends Component {
             </section>
         )
     }
+
 }
