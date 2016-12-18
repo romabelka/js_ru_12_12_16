@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+//вот напрасно ты это сделал. В следующей домашке давай с обычными статьями работать
 import {normalizedComments} from '../fixtures'
 
 // export default function CommentList(props) {
@@ -28,6 +29,7 @@ export default class CommentList extends Component {
 
     getCommentsButton() {
         // Check count comments
+        //на comentsId === undefined будет ошибка
         if(!this.props.comentsId.length) return (
             <span>No comments</span>
         );
