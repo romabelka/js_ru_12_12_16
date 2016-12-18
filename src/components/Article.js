@@ -21,6 +21,7 @@ export default class Article extends Component {
             <div>
                 <h2 onClick={this.toggleOpen}>{article.title}</h2>
                 {this.getBody()}
+                {/*это стоило внести в getBody*/}
                 <CommentList comentsId={article.comments}/>
 
             </div>
