@@ -18,11 +18,14 @@ export default class Article extends Component {
         }
     }
 */
+    componentDidMount() {
+        console.log('---', this.refs.container)
+    }
 
     render() {
         const { article } = this.props
         return (
-            <div>
+            <div ref = "container">
                 <h3 onClick = {this.toggleOpen}>{article.title}</h3>
                 {this.getBody()}
             </div>

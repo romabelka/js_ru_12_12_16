@@ -7,6 +7,22 @@ class CommentList extends Component {
         comments: []
     }
 
+    componentWillMount() {
+        console.log('---', 1)
+    }
+
+    componentDidMount() {
+        console.log('---', 2)
+    }
+
+    componentWillUnmount() {
+        console.log('---', 3)
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log('---', 'updating to toggle open', this.props.isOpen !== nextProps.isOpen)
+    }
+
     render() {
         return (
             <div>

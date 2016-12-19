@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import Article from './Article'
+import Chart from './Chart'
 
 export default function ArticleList(props) {
     const { articles } = props
@@ -11,6 +12,7 @@ export default function ArticleList(props) {
                 {/*some comment*/}
                 {articleElements}
             </ul>
+            <Chart articles = {articles}/>
         </div>
     )
 }
