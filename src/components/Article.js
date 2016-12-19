@@ -1,9 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import CommentList from './CommentList'
 
 export default class Article extends Component {
     state = {
-        isOpen: false
+        isOpen: false,
+    }
+
+    static propTypes = {
+        article: PropTypes.object.isRequired
     }
 
 /*

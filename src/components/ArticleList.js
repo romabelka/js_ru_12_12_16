@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import Article from './Article'
 
 export default function ArticleList(props) {
@@ -13,4 +13,8 @@ export default function ArticleList(props) {
             </ul>
         </div>
     )
+}
+
+ArticleList.propTypes = {
+    articles: PropTypes.array.isRequired
 }
