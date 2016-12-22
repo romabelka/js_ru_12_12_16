@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react'
 import {findDOMNode} from 'react-dom'
 import Article from './Article'
-import Chart from './Chart'
 import accordion from '../decorators/accordion'
 
 class ArticleList extends React.Component {
@@ -22,7 +21,6 @@ class ArticleList extends React.Component {
                     {/*some comment*/}
                     {articleElements}
                 </ul>
-                <Chart articles={articles}/>
             </div>
         )
     }
