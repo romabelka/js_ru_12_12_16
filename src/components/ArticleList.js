@@ -1,12 +1,10 @@
 import React, {PropTypes} from 'react'
+import {findDOMNode} from 'react-dom'
 import Article from './Article'
 import Chart from './Chart'
 import accordion from '../decorators/accordion'
 
 class ArticleList extends React.Component {
-    state = {
-        openArticleId: null
-    }
     render() {
         const {articles, isOpenItem, toggleOpenItem} = this.props
         const articleElements = articles.map(article =>
@@ -14,6 +12,7 @@ class ArticleList extends React.Component {
                 <Article article={article}
                          isOpen={isOpenItem(article.id)}
                          onClick={toggleOpenItem(article.id)}
+                         ref = {this.getArticleRef}
                 />
             </li>)
         return (
@@ -26,6 +25,11 @@ class ArticleList extends React.Component {
                 <Chart articles={articles}/>
             </div>
         )
+    }
+
+    getArticleRef = (article) => {
+        this.article = article
+        console.log('---', findDOMNode(article))
     }
 }
 
