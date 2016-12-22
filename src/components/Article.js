@@ -3,11 +3,13 @@ import CommentList from './CommentList'
 
 export default class Article extends Component {
     static propTypes = {
-        article: PropTypes.object.isRequired
+        article: PropTypes.object.isRequired,
+        isOpen: PropTypes.bool,
+        onClick: PropTypes.func
     }
 
     componentDidMount() {
-        console.log('---', this.refs.container)
+//        console.log('---', this.refs.container)
     }
 
     render() {
