@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
-//вот напрасно ты это сделал. В следующей домашке давай с обычными статьями работать
-import {normalizedComments} from '../fixtures'
+import toggleOpen from '../decorators/toggleOpen'
 
-// export default function CommentList(props) {
-export default class CommentList extends Component {
+class CommentList extends Component {
     constructor(props) {
         super(props);
 
@@ -12,11 +10,6 @@ export default class CommentList extends Component {
         };
     };
 
-    toggleOpen = () => {
-        this.setState({
-            isOpenComments: !this.state.isOpenComments,
-        });
-    };
 
     render() {
         return (
@@ -29,37 +22,31 @@ export default class CommentList extends Component {
 
     getCommentsButton() {
         // Check count comments
-        //на comentsId === undefined будет ошибка
-        if(!this.props.comentsId.length) return (
+        //на comments === undefined будет ошибка
+        if (!this.props.comments) return (
             <span>No comments</span>
         );
 
         return (
-            <button onClick={this.toggleOpen}>{!this.state.isOpenComments ? "Show comments" : "Hide comments"}</button>
+            <button onClick={this.props.toggleOpen}>
+                {!this.state.isOpenComments ? "Show comments" : "Hide comments"}
+            </button>
         )
     }
 
     getCommentList() {
+
         if (!this.state.isOpenComments) return null;
-        const {comentsId} = this.props;
 
-        // Create array with related comments
-        let relatedComments = [];
-        comentsId.forEach(function (i) {
-            normalizedComments.forEach(function (item) {
-                if (i === item.id) {
-                    relatedComments.push(item)
-                }
-            });
-        });
+        const {comments} = this.props;
 
-        const commentsElements = relatedComments.map(oneComment =>(
+        const commentsElements = comments.map(oneComment =>(
             <li key={oneComment.id}>
                 <h4>{oneComment.user}</h4>
                 <section>
                     {oneComment.text}
                 </section>
-                </li>
+            </li>
         ));
 
         return (
@@ -69,3 +56,5 @@ export default class CommentList extends Component {
         )
     }
 }
+
+export default toggleOpen(CommentList);
