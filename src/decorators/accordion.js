@@ -14,10 +14,8 @@ export default function accordion(Component) {
         }
 
         isOpen = id => {
-            console.log(id);
             return this.state.openItemId == id
         }
-
 
         toggleOpenItem = id => ev => {
             this.setState({
