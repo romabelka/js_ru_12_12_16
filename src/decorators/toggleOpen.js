@@ -6,7 +6,6 @@ export default function toggleOpen(Component) {
             isOpen: false
         };
 
-
         render() {
             return <Component {...this.props} {...this.state} toggleOpen={this.toggleOpen}/>
         }
