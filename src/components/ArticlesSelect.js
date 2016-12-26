@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react'
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
 
-class Filter extends Component {
+class ArticlesSelect extends Component {
     static propTypes = {
-
+        articles: PropTypes.array
     };
 
     state = {
@@ -28,4 +28,4 @@ class Filter extends Component {
     })
 }
 
-export default Filter
+export default ArticlesSelect

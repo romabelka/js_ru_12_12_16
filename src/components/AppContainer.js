@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import ArticleList from './ArticleList'
 import UserForm from './UserForm'
-import Filter from './Filter'
+import Filter from './Filters'
 
 function AppContainer(props) {
     return (
