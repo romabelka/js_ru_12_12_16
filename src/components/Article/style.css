@@ -1,0 +1,17 @@
+.commentBody-enter {
+    opacity: 0.01;
+}
+
+.commentBody-enter.commentBody-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+.commentBody-leave {
+    opacity: 1;
+}
+
+.commentBody-leave.commentBody-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}

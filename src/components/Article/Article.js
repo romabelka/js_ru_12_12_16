@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
-import CommentList from'./CommentList'
+import CommentList from'../Comment/CommentList'
+import CSSTransition from 'react-addons-css-transition-group'
+import './style.css';
 
 export default class Article extends Component {
 
@@ -8,21 +10,19 @@ export default class Article extends Component {
         return (
             <div>
                 <h2 onClick={onClick}>{article.title}</h2>
-                {this.getBody()}
+                <CSSTransition
+                    transitionName="commentBody"
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={300}>
+                    {this.getBody()}
+                </CSSTransition>
             </div>
         )
     }
 
 
-    // toggleOpen = () => {
-    //     this.setState({
-    //         isOpen: !this.state.isOpen
-    //     })
-    // };
-
     getBody() {
         if (!this.props.isOpen) return null;
-        // console.log(this.props);
         return (
             <section>
                 {this.props.article.text}

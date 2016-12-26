@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import ArticleLis from './ArticleList'
-import DateRangePicker from './DateRangePicker'
+import ArticleLis from '../Article/ArticleList'
+import DateRangePicker from '../DatePicker/DateRangePicker'
+import './style.css';
 
 export default class AppComponent extends Component {
     render() {
