@@ -8,7 +8,7 @@ class Counter extends Component {
     };
 
     state = {
-        count: store.getState()
+        count: store.getState().count
     }
 
     componentDidMount() {
@@ -16,7 +16,7 @@ class Counter extends Component {
     }
 
     handleStoreChange = () => this.setState({
-        count: store.getState()
+        count: store.getState().count
     })
 
     render() {

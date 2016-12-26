@@ -9,8 +9,8 @@ function AppContainer(props) {
         <div>
             <Counter/>
             <UserForm />
-            <Filter articles = {props.articles}/>
-            <ArticleList articles={props.articles}/>
+            <Filter articles = {[]}/>
+            <ArticleList/>
         </div>
     )
 }
