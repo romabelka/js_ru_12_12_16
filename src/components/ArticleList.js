@@ -29,7 +29,6 @@ class ArticleList extends React.Component {
 
     getArticleRef = (article) => {
         this.article = article
-        console.log('---', findDOMNode(article))
     }
 }
 

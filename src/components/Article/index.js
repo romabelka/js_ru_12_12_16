@@ -22,7 +22,6 @@ class Article extends Component {
      */
 
     componentWillUpdate() {
-        console.log('---', 'updating article')
     }
 
     render() {
