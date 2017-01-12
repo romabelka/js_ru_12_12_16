@@ -49,7 +49,7 @@ class Article extends Component {
         return (
             <section>
                 {this.props.article.text}
-                <CommentList comments = {this.props.article.comments} />
+                <CommentList commentsIds = {this.props.article.comments} />
             </section>
         )
     }
