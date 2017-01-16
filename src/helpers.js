@@ -10,3 +10,7 @@ export function arrayToMap(arr, Model) {
 export function mapToArray(immutableMap) {
     return immutableMap.valueSeq().toArray()
 }
+
+export function generateRandomId() {
+    return Date.now() + Math.random()
+}

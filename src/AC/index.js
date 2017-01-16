@@ -1,4 +1,4 @@
-import { INCREMENT, DELETE_ARTICLE } from '../constants'
+import { INCREMENT, DELETE_ARTICLE, ADD_COMMENT } from '../constants'
 
 export function increment() {
     return {
@@ -10,5 +10,13 @@ export function deleteArticle(id) {
     return {
         type: DELETE_ARTICLE,
         payload: { id }
+    }
+}
+
+export function addComment(articleId, comment) {
+    return {
+        type: ADD_COMMENT,
+        payload: { articleId, comment },
+        generateId: true
     }
 }
