@@ -4,8 +4,13 @@ import Article from './Article'
 import accordion from '../decorators/accordion'
 import { connect } from 'react-redux'
 import { mapToArray } from '../helpers'
+import { loadAllArticles } from '../AC'
 
 class ArticleList extends React.Component {
+    componentDidMount() {
+        this.props.loadAllArticles()
+    }
+
     render() {
         const {articles, isOpenItem, toggleOpenItem} = this.props
         const articleElements = articles.map(article =>
@@ -53,5 +58,6 @@ export default connect(
         return {
             articles: filteredArticles
         }
-    }
+    },
+    { loadAllArticles }
 )(accordion(ArticleList))
