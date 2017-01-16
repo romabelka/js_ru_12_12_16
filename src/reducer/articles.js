@@ -1,4 +1,4 @@
-import { DELETE_ARTICLE, ADD_COMMENT, LOAD_ALL_ARTICLES, START, SUCCESS, FAIL } from '../constants'
+import { DELETE_ARTICLE, ADD_COMMENT, LOAD_ALL_ARTICLES, LOAD_ARTICLE, START, SUCCESS, FAIL } from '../constants'
 import { arrayToMap } from '../helpers'
 import { Record, OrderedMap } from 'immutable'
 
@@ -41,6 +41,9 @@ export default (articlesState = new DefaultReducerState({}), action) => {
             return articlesState
                 .set('error', error)
                 .set('loading', false)
+
+        case LOAD_ARTICLE + SUCCESS:
+            return articlesState.setIn(['entities', response.id], new ArticleModel(response))
     }
 
     return articlesState
