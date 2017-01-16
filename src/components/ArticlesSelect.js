@@ -31,5 +31,5 @@ class SelectFilter extends Component {
 
 export default connect(state => ({
     selected: state.filters.selected,
-    articles: mapToArray(state.articles)
+    articles: mapToArray(state.articles.entities)
 }), { changeSelection })(SelectFilter)
