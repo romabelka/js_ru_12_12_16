@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import ArticlesSelect from './ArticlesSelect'
-import DateRange from './DateRange'
+import ArticlesSelect from '../components/ArticlesSelect'
+import DateRange from '../components/DateRange'
 
 class Filters extends Component {
     static propTypes = {

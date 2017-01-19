@@ -35,7 +35,7 @@ export default (articlesState = new DefaultReducerState({}), action) => {
 
         case LOAD_ALL_ARTICLES + SUCCESS:
             return articlesState
-                .mergeIn(['entities'], arrayToMap(response, ArticleModel))
+                .update('entities', entities => arrayToMap(response, ArticleModel).merge(entities))
                 .set('loading', false)
                 .set('loaded', true)
                 .set('error', null)

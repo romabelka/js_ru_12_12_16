@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react'
 import {findDOMNode} from 'react-dom'
-import Article from './Article'
+import {Link} from 'react-router'
 import Loader from './Loader'
 import accordion from '../decorators/accordion'
 import { connect } from 'react-redux'
@@ -16,11 +16,7 @@ class ArticleList extends React.Component {
         const {articles, loading, isOpenItem, toggleOpenItem} = this.props
         const articleElements = articles.map(article =>
             <li key={article.id}>
-                <Article article={article}
-                         isOpen={isOpenItem(article.id)}
-                         onClick={toggleOpenItem(article.id)}
-                         ref = {this.getArticleRef}
-                />
+                <Link to={`/articles/${article.id}`}>{article.title}</Link>
             </li>)
         const loader = loading && <Loader />
         return (

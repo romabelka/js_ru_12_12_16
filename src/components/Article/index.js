@@ -7,17 +7,15 @@ import './style.css'
 
 class Article extends Component {
     static propTypes = {
-        article: PropTypes.object.isRequired,
+        id: PropTypes.string.isRequired,
+        //form connect
+        article: PropTypes.object,
         isOpen: PropTypes.bool,
         onClick: PropTypes.func
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (!this.props.isOpen && nextProps.isOpen) nextProps.loadArticleById(nextProps.article.id)
-    }
-
     componentDidMount() {
-//        console.log('---', this.refs.container)
+        if (this.props.isOpen) this.props.loadArticleById(this.props.id)
     }
     /*
      shouldComponentUpdate(nextProps, nextState) {
@@ -30,6 +28,7 @@ class Article extends Component {
 
     render() {
         const { article, onClick } = this.props
+        if (!article) return null
         return (
             <div ref = "container">
                 <h3 onClick = {onClick}>{article.title}</h3>
@@ -63,4 +62,6 @@ class Article extends Component {
     }
 }
 
-export default connect(null, { deleteArticle, loadArticleById })(Article)
+export default connect((state, props) => ({
+    article: state.articles.getIn(['entities', props.id])
+}), { deleteArticle, loadArticleById })(Article)
