@@ -4,6 +4,7 @@ import App from './RouteHandlers/App'
 import ArticleList from './RouteHandlers/ArticleListRoute'
 import Article from './RouteHandlers/ArticleRoute'
 import Filters from './RouteHandlers/Filters'
+import NotFound from './RouteHandlers/NotFound'
 
 export default (
     <Router history={browserHistory}>
@@ -12,6 +13,7 @@ export default (
                 <Route path=":id" component={Article} />
             </Route>
             <Route path="filters" component={Filters}/>
+            <Route path="*" component={NotFound} />
         </Route>
     </Router>
 )
