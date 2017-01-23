@@ -1,6 +1,7 @@
 import { INCREMENT, DELETE_ARTICLE, ADD_COMMENT, LOAD_ALL_ARTICLES, LOAD_ARTICLE, LOAD_ARTICLE_COMMENTS,
     LOAD_COMMENTS_FOR_PAGE, START, SUCCESS, FAIL } from '../constants'
 import $ from 'jquery'
+import history from '../history'
 
 export function increment() {
     return {
@@ -38,18 +39,22 @@ export function loadArticleById(id) {
             type: LOAD_ARTICLE + START,
             payload: { id }
         })
-
-        $.get(`/api/article/${id}`)
-            .done(response => dispatch({
-                type: LOAD_ARTICLE + SUCCESS,
-                payload: { id },
-                response
-            }))
-            .fail(error => dispatch({
-                type: LOAD_ARTICLE + FAIL,
-                payload: { id },
-                error
-            }))
+        setTimeout(() => {
+            $.get(`/api/article/${id}`)
+                .done(response => dispatch({
+                    type: LOAD_ARTICLE + SUCCESS,
+                    payload: { id },
+                    response
+                }))
+                .fail(error => {
+                    dispatch({
+                        type: LOAD_ARTICLE + FAIL,
+                        payload: { id },
+                        error
+                    })
+                    history.replace(`/error?message=Article with id ${id} Not found`)
+                })
+        }, 1000)
     }
 }
 

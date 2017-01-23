@@ -9,6 +9,7 @@ class ErrorPage extends Component {
         return (
             <div>
                 <h1>Error page</h1>
+                <h3>{this.props.location.query.message}</h3>
             </div>
         )
     }
