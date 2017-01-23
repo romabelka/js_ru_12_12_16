@@ -18,7 +18,8 @@ export default (
             <Redirect from="/article" to="/articles"/>
             <Route path="articles" component={ArticleList}>
                 <IndexRoute component={ArticleIndexPage}/>
-                <Route path=":id" component={Article} />
+                <Route path="/view/:id" components={{article: Article}} />
+                <Route path=":id" components={{article: Article}} />
             </Route>
             <Route path="filters" component={Filters}/>
             <Route path = "comments" component = {CommentsRoot}>

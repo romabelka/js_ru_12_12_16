@@ -11,6 +11,7 @@ class ArticleListRoute extends Component {
             <div>
                 <ArticleList />
                 {this.props.children}
+                {this.props.article}
             </div>
         )
     }

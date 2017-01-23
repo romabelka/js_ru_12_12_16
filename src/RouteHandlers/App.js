@@ -9,11 +9,30 @@ class App extends Component {
 
     };
 
+    state = {
+        username: ''
+    }
+
+    static childContextTypes = {
+        user: PropTypes.string
+    }
+
+    getChildContext() {
+        return {
+            user: this.state.username
+        }
+    }
+
     render() {
+        console.log('---', 'App')
         return (
             <Provider store = {store}>
                 <div>
                     <h1>News App</h1>
+                    <div>
+                        Input username:
+                        <input type="text" value={this.state.username} onChange={this.handleChange}/>
+                    </div>
                     <Menu>
                         <MenuItem path="/counter"/>
                         <MenuItem path="/articles"/>
@@ -23,6 +42,12 @@ class App extends Component {
                 </div>
             </Provider>
         )
+    }
+
+    handleChange = ev => {
+        this.setState({
+            username: ev.target.value
+        })
     }
 }
 

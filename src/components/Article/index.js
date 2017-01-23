@@ -14,6 +14,10 @@ class Article extends Component {
         onClick: PropTypes.func
     }
 
+    static contextTypes = {
+        router: PropTypes.object
+    }
+
     componentDidMount() {
         if (this.props.isOpen) this.props.loadArticleById(this.props.id)
     }

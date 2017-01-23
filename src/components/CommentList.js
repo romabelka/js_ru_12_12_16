@@ -13,6 +13,10 @@ class CommentList extends Component {
         toggleOpen: PropTypes.func
     }
 
+    static contextTypes = {
+        user: PropTypes.string
+    }
+
     componentWillReceiveProps({isOpen, article, loadArticleComments}) {
         if (isOpen && !this.props.isOpen &&
             !article.loadedComments && !article.loadingComments) loadArticleComments(article.id)
@@ -43,6 +47,7 @@ class CommentList extends Component {
         const commentItems = comments.map(comment => <li key = {comment.id}><Comment comment = {comment} /></li>)
         return (
             <div>
+                <b>User: {this.context.user}</b>
                 <ul>{commentItems}</ul>
                 {form}
             </div>
@@ -54,4 +59,7 @@ export default connect((storeState, props) => {
     return {
         comments: props.article.comments.map(id => storeState.comments.getIn(['entities', id]))
     }
-}, { addComment, loadArticleComments })(toggleOpen(CommentList))
+}, { addComment, loadArticleComments },
+    null,
+    {pure: false}
+)(toggleOpen(CommentList))
