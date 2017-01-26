@@ -4,6 +4,7 @@ import CSSTransition from 'react-addons-css-transition-group'
 import { deleteArticle, loadArticleById } from '../../AC'
 import { connect } from 'react-redux'
 import './style.css'
+import LocalizedText from '../LocalizedText'
 
 class Article extends Component {
     static propTypes = {
@@ -37,7 +38,7 @@ class Article extends Component {
             <div ref = "container">
                 <h3 onClick = {onClick}>{article.title}</h3>
                 <div>
-                    <a href="#" onClick = {this.handleDelete}>delete article</a>
+                    <a href="#" onClick = {this.handleDelete}><LocalizedText text="delete article"/></a>
                 </div>
                 <CSSTransition
                     transitionName="article-body"
@@ -68,4 +69,4 @@ class Article extends Component {
 
 export default connect((state, props) => ({
     article: state.articles.getIn(['entities', props.id])
-}), { deleteArticle, loadArticleById })(Article)
+}), { deleteArticle, loadArticleById }, null, {pure: false})(Article)

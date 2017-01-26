@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import LocalizedText from '../LocalizedText'
 
 class Menu extends Component {
     static propTypes = {
@@ -8,7 +9,7 @@ class Menu extends Component {
     render() {
         return (
             <div>
-                <h3>Select path</h3>
+                <h3><LocalizedText text="Select path"/></h3>
                 <ul>
                     {this.props.children}
                 </ul>
